@@ -9,6 +9,10 @@ spec:
       targetPort: 8080
   selector:
     app: simple-jwt-api
+
+    env:
+      - name: JWT_SECRET
+        value: JWT_SECRET_VALUE
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -36,8 +40,6 @@ spec:
             privileged: false
             readOnlyRootFilesystem: false
             allowPrivilegeEscalation: false
-          env:
-          - name: JWT_SECRET
-            value: JWT_SECRET_VALUE
+          
           ports:
             - containerPort: 8080
