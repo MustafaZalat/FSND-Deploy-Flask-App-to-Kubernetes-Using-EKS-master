@@ -1,3 +1,7 @@
+env:
+  - name: JWT_SECRET
+    value: JWT_SECRET_VALUE
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -10,9 +14,6 @@ spec:
   selector:
     app: simple-jwt-api
 
-    env:
-      - name: JWT_SECRET
-        value: JWT_SECRET_VALUE
 ---
 apiVersion: apps/v1
 kind: Deployment
